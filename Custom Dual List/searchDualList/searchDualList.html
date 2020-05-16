@@ -1,0 +1,15 @@
+<template>
+  <div class="slds-grid slds-wrap slds-box">
+    <div class="slds-col slds-size_1-of-1">
+      <lightning-input id="input" label={labelName} onchange={ChangeSearchInput} placeholder="Search..."
+        type="search">
+      </lightning-input>
+    </div>
+    <div class="slds-col slds-size_1-of-1">
+
+      <lightning-dual-listbox name="languages" options={SelectedOptions} value={SelectedValues} onchange={handleChange}>
+      </lightning-dual-listbox>
+    </div>
+  </div>
+ 
+</template>
