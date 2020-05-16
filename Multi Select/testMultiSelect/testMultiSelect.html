@@ -1,0 +1,18 @@
+<template>
+    This is custom MultiSelect Test
+</br>
+    <c-simple-multi-select all-list={simpleMultiSelectList} place-holder="Select..." 
+    label-name="My MultiSelect" onselected={Displayitems}>
+    </c-simple-multi-select>
+</br>
+    <lightning-card title="Select Items in Parent" icon-name="custom:custom67">
+            <div class="slds-m-horizontal_medium">
+                    
+                <template for:each={objectInfo} for:item='item'>
+                    <li class="slds-listbox__item slds-search-dropdown-list-items" key={item.label}>
+                       <div>{item.value}</div>
+                     </li>
+                </template>
+            </div>
+        </lightning-card>
+</template>

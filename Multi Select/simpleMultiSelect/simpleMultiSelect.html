@@ -1,0 +1,50 @@
+<template>
+    <div class="slds-form-element" >
+        <label class="slds-form-element__label" for="combobox-unique-id">{labelName}</label>
+        <div class="slds-form-element__control">
+            <div class="slds-combobox_container slds-size_small">
+                <div class={comboClass} aria-expanded={listOpened}
+                    aria-haspopup="listbox" role="combobox">
+
+
+                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right">
+                        <lightning-input id="input" value={searchInput}  onclick={SearchClick} onchange={ChangeSearchInput}
+                            variant="label-hidden" aria-autocomplete="list" role="textbox" autocomplete="off"
+                            placeholder={placeHolder} type="text">
+                        </lightning-input>
+                        <span class="slds-icon_container slds-icon-utility-down slds-input__icon slds-input__icon_right"
+                            >
+                            <lightning-icon icon-name="utility:down" size="x-small" ></lightning-icon>
+                            <span class="slds-assistive-text">Click to open the List</span>
+                        </span>
+                    </div>
+                    <div class=" slds-form-element__control slds-input-has-icon slds-input-has-icon slds-input-has-icon_left-right" role="none">
+                        <template for:each={selectedList} for:item="selectedItem">
+                            <span key={selectedItem.value}>
+                                <lightning-pill label={selectedItem.label} name={selectedItem.value} data-item={selectedItem.value}
+                                    onremove={handleRemoveRecord}>
+                                   
+                                </lightning-pill>
+                            </span>
+                        </template>                     
+                    </div>
+
+                    <div id="listbox-id-1"
+                                                class="zindexHigh slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+                                                role="listbox">
+                    <div class="slds-size_2-of-2 slds-popover__body slds-popover__body_small">
+                            
+                            <template for:each={displayList} for:item="Item">
+                               <span key={Item.value}>
+                                        <lightning-input type="checkbox" label={Item.label} value={Item.value} checked={Item.selected}  onchange={handleCheckboxChange}></lightning-input>
+                                </span>
+                            </template>   
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
