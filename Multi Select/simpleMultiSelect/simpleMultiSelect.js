@@ -26,6 +26,8 @@ export default class SimpleMultiSelect extends LightningElement {
     //toggle between the list opened and Closed, default is false
     @track listOpened = false;
 
+    @track _initializationCompleted = false;
+
     //style of the div
     @track comboClass = 'slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click';
    
@@ -191,5 +193,24 @@ export default class SimpleMultiSelect extends LightningElement {
         const selectedEvent = new CustomEvent('selected', { detail: this.selectedList });
         // Dispatches the event.
         this.dispatchEvent(selectedEvent);
+    }
+
+    renderedCallback () {
+ 
+        if (!this._initializationCompleted) {
+            let self = this; 
+            this.template.querySelector ('[data-id=comboMultiSelect]').addEventListener ('click', function (event) {
+                event.stopPropagation();
+            });
+            document.addEventListener ('click', function () {
+                self.closePickList();
+            });
+            this._initializationCompleted = true;
+        }
+    }
+    closePickList() {
+        this.searchInput = ''; //clearing the text
+        this.listOpened = false;
+        this.comboClass = 'slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click';
     }
 }
