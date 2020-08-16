@@ -1,0 +1,10 @@
+.zindexHigh {
+  z-index: 999;
+  top: 30px;
+  position: absolute;
+}
+
+.zindex2 {
+  z-index: 2;
+  position: relative;
+}
