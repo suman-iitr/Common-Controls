@@ -1,0 +1,74 @@
+<template>
+    <div class="slds-form-element">
+
+        <div class="slds-form-element__control">
+            <!--<div class="slds-combobox_container slds-size_small"> This helps make the width smaller-->
+            <div class="slds-combobox_container">
+                <div class={comboClass} aria-expanded={listOpened} aria-haspopup="listbox" role="combobox"
+                    >
+                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right">
+
+                        <label class="slds-form-element__label" for="unique-id-of-input">
+                            <template if:true={isrequired}>
+                                <abbr class="slds-required" title="required">*</abbr>
+                            </template>
+                            {label}
+                        </label>
+                        <template if:false={selectedRecord}>
+                            <lightning-input  type="search" value={searckKeyword} onchange={hanldeSearch}
+                            class="searchInput"    
+                            variant="label-hidden" aria-autocomplete="list" role="textbox" autocomplete="off"
+                                placeholder={placeHolder}></lightning-input>
+                        </template>
+                        <template if:true={selectedRecord}>
+                            <div class="slds-pill-container">
+                                <lightning-pill style="width: 100%;" label={selectedRecord}
+                                    name={selectedRecord} onremove={handleRemove} title={selectedRecord} >
+                                    <lightning-icon icon-name={iconname} variant="circle" alternative-text={objectName}>
+                                    </lightning-icon>
+                                </lightning-pill>
+                            </div>
+                        </template>
+                    </div>
+                    <template if:false={selectedRecord}>
+                        <template if:true={displayList}>
+                            <div id="listbox-id-1" class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid"
+                                role="listbox">
+
+                                <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                                    <template for:each={records} for:item="rec" for:index="index">
+                                        <li key={rec.Id} role="presentation" class="slds-listbox__item" data-id={rec.Id}
+                                            data-name={rec.Name} onclick={handleSelect}>
+                                            <span id={rec.Id}
+                                                class="slds-media slds-listbox__option slds-listbox__option_entity"
+                                                role="option">
+                                                <!--<template if:true={iconname}>
+                                                    <span class="slds-media__figure">
+                                                        <lightning-icon icon-name={iconname} size="small">
+                                                        </lightning-icon>
+                                                    </span>
+                                                </template>
+                                                {rec.Name}-->
+                                                <div class="slds-truncate" title={rec.Name}>
+                                                    <template if:true={iconname}>
+                                                        <span class="slds-media__figure">
+                                                            <lightning-icon icon-name={iconname} size="small">
+                                                            </lightning-icon>
+                                                         </span>
+                                                    </template>
+                                                    {rec.Name}
+                                                </div>
+                                            </span>
+                                        </li>
+
+                                    </template>
+                                </ul>
+                            </div>
+                        </template>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

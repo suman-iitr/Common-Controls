@@ -1,0 +1,10 @@
+<template>
+ 
+  <c-custom-lookup isrequired="true" object-name="Account" field-name="Name" label="My Lookup"
+    iconname="standard:account" onselect={handleSelect}></c-custom-lookup>
+  </br>
+  Item Selected : {selectedItem}
+  </br>
+  <lightning-button label="click Please" title="Neutral action" onclick={handleClick} class="slds-m-left_x-small">
+  </lightning-button>
+</template>
