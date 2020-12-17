@@ -1,0 +1,19 @@
+<template>
+    <lightning-record-form
+    object-api-name={objectApiName}
+                record-id={recordId}
+                fields={fields}
+                columns="2"
+                onsubmit={handleSubmit}
+                onsuccess={handleSuccess}
+    >
+</lightning-record-form>
+<c-confirmation-modal visible={showConfirmModal} 
+                        title={modalTitle} 
+                        name={confirmModalName}
+                        message={modalMessage} 
+                        confirm-label={modalConfirmLabel} 
+                        cancel-label={modalCancelLabel}     
+                        onmodalclick={handleModalClick}>
+                    </c-confirmation-modal>
+</template>

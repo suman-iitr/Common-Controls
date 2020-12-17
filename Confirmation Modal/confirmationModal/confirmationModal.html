@@ -1,0 +1,29 @@
+<template>
+        <template if:true={visible}>
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open" aria-labelledby="modal-heading-01"
+                aria-modal="true" aria-describedby="modal-content-id-1">
+                <div class="slds-modal__container" style="width: 100px;">
+                    <template if:true={title}>
+                        <header class="slds-modal__header">
+                            <h2 id="modal-heading-01" class="slds-modal__title slds-hyphenate">{title}</h2>
+                        </header>
+                    </template>
+                    <template if:false={title}>
+                        <header class="slds-modal__header slds-modal__header_empty"></header>
+                    </template>
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <p>{message}</p>
+                    </div>
+                    <footer class="slds-modal__footer">
+                        <template if:true={cancelLabel}>
+                            <lightning-button class="slds-m-left_x-small" variant={cancelVariant} name="cancel" label={cancelLabel}
+                                title={cancelLabel} onclick={handleClick}></lightning-button>
+                        </template>
+                        <lightning-button class="slds-m-left_x-small" variant={confirmVariant} name="confirm" label={confirmLabel}
+                            title={confirmLabel} onclick={handleClick}></lightning-button>
+                    </footer>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+    </template>
