@@ -38,8 +38,8 @@ export default class recordForm extends LightningElement {
 
         if(event.detail.status==='confirm'){
             
-            
-            this.template.querySelector('lightning-record-form').submit(this.fields);
+            const fields = event.detail.fields;
+            this.template.querySelector('lightning-record-form').submit(fields);
         }
         
 
