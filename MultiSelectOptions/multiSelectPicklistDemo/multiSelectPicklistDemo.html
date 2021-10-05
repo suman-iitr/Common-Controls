@@ -1,0 +1,17 @@
+<template>
+    <div class="slds-box slds-theme_default" >
+        Multiselect picklist demo -
+    
+                            <c-multi-select-picklist all-list={stageOptions}
+                            place-holder="Filter by Stage.."
+                            onvalueselect={handleSelectedSatgeRecords} 
+                            hide-pill="true"
+                            selected-items={stagevaluedefault}
+                            parent-label="Stage"
+                            include-select-all = "true">
+                        </c-multi-select-picklist>
+                        
+        Value selected are -
+        {selectedSatgeRecords}
+    </div>
+    </template>

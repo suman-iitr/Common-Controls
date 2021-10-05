@@ -1,0 +1,12 @@
+.slds-input-has-icon .slds-input__icon{
+    margin-top: -.8rem;
+  }
+  .zindexHigh {
+      z-index: 999;
+      top: 30px;
+      position: absolute;
+    }
+    
+    .zindex2 {
+      top: -11px;
+    }
